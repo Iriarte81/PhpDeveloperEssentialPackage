@@ -1,0 +1,159 @@
+SUBLIME TEXT BASIC SHORTCUTS – WINDOWS
+
+FILE SHORTCUTS
+
+Ctrl + n = Open new file
+Ctrl + s = Save file
+Ctrl + w = Close new file
+Ctrl + shift + t = Open a file you just closed
+Alt + 1-9 keys = move to file tab
+Ctrl + pgup or pgdown = move through file tabs
+Ctrl + tab = moves to recent file tabs
+Ctrl + p = file tab menu pop up
+
+TEXT EDITING
+
+F6 = spell check
+Ctrl + ] = indent right (even selection)
+Ctrl + [ = indent left 
+Ctrl + m = jump from and to beginning and ending of curly brace or bracket
+
+Toogle Comment
+Ctrl + / = toggle comment
+
+
+VIEWS
+
+View > Layout = to split windows and work on multiple files
+Ctrl + 1-4 keys = move from window to window
+File > New View into file = create a second view of existing file
+
+SAVING, SEARCHING AND REPLACING
+
+Drag folder into sublime screen, a side menu with the folder will appear. To save as a project go to Project > Save Project As
+Ctrl + Alt + p = switch between projects
+
+Ctrl + f = search the current file
+	up and down arrow = search through search history
+Ctrl + i = incremental find
+Ctrl + h = replace
+Ctrl + shift + f = search across files
+	F4 = move through results of last search
+
+PREFERENCES
+
+Preferences > Settings – Default (you copy from here the setting you want to change)
+
+Preferences > Settings – User (you paste here the setting you want to apply)
+
+Preferences > Settings – More > Syntax Specific User (you paste here the setting you want to apply to specific file types – like html or php)
+
+One last place where settings can go is in your project file. If I look in my roux_website project, I've got my Sublime project file here, and if I open it that for editing, you'll see the folders that this project contains. But I can add after that list of folders a comma and then a new section called settings which will contain all of the settings that I want applied to files in this project by default. This is a great place for putting, for example, the indentation settings that you and your team have agreed on for files in this project. 
+
+Preferences > Color Scheme = change the color scheme of sublime text 2
+
+Preferences > Key Bindings – Default = change key shortcuts (you copy the keybinding you want to change from here)
+
+Preferences > Key Bindings – User = (you paste here the key binding you want to apply to override the defaults)
+
+SELECTIONS
+
+Alt + right or left arrow = move right or left by word not by letter
+Alt + shift + right or left arrow = make selection and keep it moving word by word
+Ctrl + d = select a word
+Ctrl + l = select the whole line
+Ctrl + shift + a = select by tag structure (repeat)
+Ctrl + shift + m = select the contents with a pair of brackets
+Ctrl + shift + j = select by indentation
+Ctrl + shift + space = select by scope (color text in the editor)
+Ctrl + t = swap words or letters by placing the cursor in between them
+Ctrl + shift + up or down = move lines of code up and down
+
+Ctrl + F2 = to bookmark a part of the code, and hit F2 to go to that bookmark
+Go to > Bookmarks > Clear Bookmarks = delete bookmarks
+you can always toggle Ctrl + F2 to add or delete bookmarks
+
+GO TO ANYTHING
+
+Ctrl + p = search inside of a file, preceding search with # allows for fuzzy search, and adding the name of the file before # allows fuzzy search within the file. 
+Also, writing : and then a number, will take you to that line number, precede it with the file name and you can peek into that file without opening it. Press esc to get out.
+Finally, writing @ after a type of file will show you the selectors or elements (depending on the type of file) so you can peek through or enter the file at that spot.
+
+COMMAND PALLET
+
+Ctrl + shift + p = brings up command pallet, you can use fuzzy serach for locating commands you want to find out the shortcut to
+
+
+SUBLIME TEXT – BASIC SHORTCUTS - PART 2
+
+MULTIPLE SELECTION AND COMPLEX EDITIONS
+
+Click to create multiple cursors in many lines holding the Ctrl key. Then hit Hspace and insert a space on all spots.
+
+Ctrl + Alt + up and down = Create a new cursor in another line, then hit spacebar. (you may need to disable Word Wrap from the View menu)
+
+Best way = Select all lines, Ctrl + Shift + L, it will explode the selection. Hit the left of each line, and move alt + right arrow to go the right spots. And then hit space.
+
+Alt + F3 = select every occurrence of selected word in the document
+Alt + right arrow: move to the end of the word.
+
+Ctrl + d = continue adding selections of selected word
+Ctrl + k = skip the ones that need skipping from selected word as you move on with Ctrl + d
+
+Ctrl + u = Undo the last selection action you did
+
+
+
+
+VINTAGE MODE – EMULATES VIM
+
+Preferences > Settings - Default = Copy last line  “ignored_packages”: [“Vintage”]
+Preferences > Settings - User = Copy the line and put “ignored_package”: []
+The Vintage mode is now enabled
+Esc = takes you to Command mode
+
+AUTOCOMPLETION
+
+Ctrl + Spacebar = Gives a list of all property names, tags, and other words , any words existing in the document corresponding to the context.
+
+Preferences > Settings – User = Add
+“auto_complete_commit_on_tab”: true
+What this will do is complete with autosuggestion hitting tab, not enter. Entere can be reserved for line breaks this way.
+
+Tab = While writing you can click Tab and it will autocomplete with its best guess, tab again and it will guess again. Ctrl + Spacebar to giveup on guesses and select the right one.
+
+In the Control Pallet, write Snippet and you get a list of snippets and what you need to trigger them. Once inserted, tab though the fields of the snippet.
+
+MACROS
+
+Ctrl + Q = Start and finish recording
+Ctrl + shift + Q = Invoke macro
+Tools > Macros = Save macro
+
+	Add a Key Binding
+
+	Go to Key Bindings > User = Add
+	{ “keys”: [“Ctrl+;”], “command”: “run_macro_file”, “args”: {“file”: 	“Packages/User/Saved Macro Name.sublime-macro”}}
+	Save this and close the file
+
+
+PACKAGES
+
+Google: Sublime Package Control.
+
+View > Show Console
+Paste the block of code from the webpage and it will install Package Control
+Restart Sublime
+
+Preferences > Package Control > Package Control: Install Packages
+
+1. ReadmePlease – to read readme files for installed packages 
+2. ColorPicker – Anywhere hit Control + Shift + c to bring out color picker
+3. LineEndings – Control Lineendings
+4. SideBarEnhancements – Enhances side bar pop up menu
+5. HyperlinkHelper – Needs restart sublime. Ctrl + alt + shift + l, creates a link.
+				Ctrl + alt + l, creates a like for a url selected
+6. Emmet – Needs restart sublime. Saves you typing html and much more
+				Ctrl + shift + / = Comments out entire block of code
+				
+

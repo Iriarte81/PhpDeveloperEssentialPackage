@@ -1,0 +1,143 @@
+pMysql –-version
+mysql -u root -p
+login as the root user and enter your password
+secret (this is the password)
+
+mysql>
+
+exit;
+exit us
+
+quit;
+exit us
+
+SHOW DATABASES;
+show a list of all dbs you are currently holding
+
+CREATE DATABASE db_name;
+create a database named “db_name”
+
+USE db_name;
+start using database “db_name”
+
+DROP DATABASE db_name;
+delete the database named “db_name”
+
+GRANT ALL PRIVILEGES ON db_name.*
+TO 'username'@'localhost'
+IDENTIFIED BY 'password';
+create privileges for a certain user
+the asterisk refers to all tables in the db
+
+SHOW GRANTS FOR 'username'@'localhost';
+shows privileges granted to the user
+
+examples
+
+GRANT ALL PRIVILEGES ON widget_corp.*
+TO 'widget_cms'@'localhost'
+IDENTIFIED BY 'secretpassword';
+
+
+to enter a as a new user, the mysql console from wamp menu wont work, it will only work for the root user (password: secret), to enter as a new user go to windows powershell
+and go to the /wamp/bin/mysql/mysql15.6.17/bin and type
+.\mysql.exe -u widget_cms -p widget_corp
+password: secretpassword
+
+SHOW TABLES
+show all the tables
+
+CREATE TABLE table_name(
+column_name1 definition,
+column_name2 definition,
+column_name3 definition,
+);
+
+SHOW COLUMNS FROM table_name;
+
+DROP TABLE table_name;
+
+example:
+
+CREATE TABLE subjects (
+id INT(11) NOT NULL AUTO_INCREMENT,
+menu_name VARCHAR(30) NOT NULL,
+position INT(3) NOT NULL,
+visible TINYINT(1) NOT NULL,
+PRIMARY KEY (id),
+);
+
+CRUD
+
+
+SELECT *
+FROM table
+WHERE column1 = 'some_text'
+ORDER BY column1 ASC;
+
+INSERT INTO table (colum1, column2, column3)
+VALUES (val1, val2, val3)
+
+UPDATE table
+SET column1 = 'some_text'
+WHERE id = 1;
+
+DELETE FROM table
+WHERE id = 1;
+
+
+CREATE TABLE pages (
+id INT(11) NOT NULL AUTO_INCREMENT,
+subject_id INT(11) NOT NULL,
+menu_name VARCHAR(30) NOT NULL,
+position INT(3) NOT NULL,
+visible TINYINT(1) NOT NULL,
+content TEXT,
+PRIMARY KEY (id),
+INDEX (subject_id),
+);
+
+the index (subject_id) indicates the foreign key of this table
+
+
+ESCAPTING STRINGS TO AVOID SQL INJECTION
+
+
+mysqli_real_escape_string($db, $string)
+
+
+PREPARED STATEMENTS TO PREVENT HAVING TO ESCAPE STRINGS
+
+$query = “SELECT id, first_name, last_name “;
+$query .= “FROM users “;
+$query .= “WHERE username = ? AND password = ?”;
+$stmt = mysqli_prepare($connection, $query);
+
+mysqli_stmt_bind_param($stmt, 'ss', $username, $password);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_bind_result($stmt, $id, $first_name, $last_name);
+mysqli_stmt_fetch($stmt);
+mysqli_stmt_close($stmt);
+
+LOAD A PROJECT INTO MYSQL
+
+mysql -u username –password=”secret” name_of_db_we_want_to_use < filepath/for the/database.sql
+
+HOW TO CREATE A NEW USER – we should not try to do everything as root but rather create a new user to administer the databases.
+
+
+GRANT ALL PRIVILEGEES ON database_name.*
+TO 'username'@'localhost'
+IDENTIFIED BY 'password';
+
+
+AFTER CREATING A TABLE THAT HAS A FOREIGN KEY WE NEED TO:
+
+ALTER TABLE tablename ADD INDEX (photograph_id)
+
+where photograph_id is the foreign key column name
+
+
+
+ 
+
