@@ -1,0 +1,229 @@
+Regex
+
+
+
+CHAPTER 1 – A BIRD'S EYE VIEW
+
+
+Use Regexr.com site. It's the best.
+
+// begining and end of regex
+
+$ end of a string
+
+\$ look for a dollar sign
+
+/\$.+\$/
+
+start reg ex /, start with a literal dollar sign, look for any character (.) one time or more (+) then look for a dollar sign and end the regex
+
+(.+) the plus refers to the previous symbol, one or more of any character
+
+a+ look for a or aa or aaa and so forth
+
+[A-Z] we want to match anything from capital A to Z
+
+[ENAM]+ look for E OR N OR A OR M, will match NAME for example
+
+/https://[^NEA] match anything that is htpps:// followed by anything that is not a capital N OR E OR A
+
+/https://[^\s]{3} match anything that is not a space three times
+
+/https://[^\s]{3,5} match anything that is not a space three to five times
+
+/https://[^\s]+ match anything that is not a space until you run into one
+
+/(https://[^\s]+)/ grab anything between parenthesis and let it be represented by $1 in our hyperlink for example <a href=”$1”></a>
+
+/(https://([^\s]+))/ grab anything between the first parenthesis set and let it be represented by $1 in our hyperlink, and everything between the second set of parenthesis and let it be represented by $2 for example <a href=”$1”>$2</a>.
+
+/(https?://([^\s]+))/ the question mark makes the preceding character optional making the regex search for http and https
+
+/((ht|f)tps://([^\s]+))/ match https or ftp
+
+/((?:ht|f)tps://([^\s]+))/ match https or ftp, ?: says yes i am wrapping between parenthesis but i don't need to capture it into a variable.
+
+
+
+CHAPTER 2 – ALTERNATION
+
+/stupid/ look for stupid
+
+/stupide/ will not find stupid
+
+when you want to look for an entire paragraph or string you need to provide the g flag
+/stupid/g
+
+/stupid|idiotic|crap/g match either of those words as many times as they appear on the paragraph
+
+/stupid|idiot(ic)?|crap/ will output ic to $1 and will look for all occurrences of stupid or idiotic or idiot or crap as many times as they appear
+
+/stupid|idiot(?:ic)?|crap/ will not output ic to $1 and will look for all occurrences of stupid or idiotic or idiot or crap as many times as they appear
+
+preg_replace('/stupid|idiot(?:ic)?|crap/i', 'amazing', $stringtosearch);
+
+php does not know anything about the g flag, with preg replace the g will be implicit. The i flag looks for stupid an STUPID in the stringtoserach indistinctily.
+
+
+CHAPTER 3 – CHARACTER SETS
+
+/(B|T|C)orn/g look for Born, Torn, and Corn
+
+/[BTC]orn/g look for one of the characters in parenthesis B OR T OR C and the orn. So it will look for Born, Torn and Corn
+
+/[BTCbtc]orn/g or /[BTC]orn/ig will look for Born, Torn, Corn, born, torn, corn.
+
+/[w]/ig will look for individual doubleus
+
+/[w]{3}/ig look for three doubleus together
+
+/[w]{3-5}/ig look for a minimum of three or a maximum of five
+
+/[w]*/ig match 0 or more of the preceding character
+
+/[w]?/ig match 0 or 1 of the preceding character
+
+/[^BTC]orn/ig do not match Born OR Torn OR Corn, match Warn for example
+
+\. use the period not the period as a wildcard
+
+/www\.[^\.]+/ig will match www, followed by a period, followed by anything that is not a period one or more times for example www.laracasts or www.google in www.laracasts.com and www.google.com The regex stops at the period of .com because the period is negated.
+
+
+
+CHAPTER 4 - GREEDINESS
+
+/@.+ /g will match
+
+@JohnDoe thanks for the
+in
+@JohnDoe thanks for the help
+
+because it is greedy, it will match until the last space.
+
+to tell it not to be greedy
+
+/@\w+/g will match @JohnDoe both times in
+
+Thanks for the help, @JohnDoe.
+@JohnDoe, tahnks for the help.
+
+\b will match punctuation or white space
+\w is any capital or lower case letter or number
+
+/(@\w+)/g
+will include @JohnDoe in $1 capturing group.
+
+/@(\w+)/g
+will search for @JohnDoe but will include only JohnDoe in $1 capturing group.
+
+
+
+CHAPTER 5 – LOOKAHEADS AND LOOKBEHINDS
+
+/(google)</ig will search for google preceding by a closing tag, capture only google.
+
+Positive Lookahead:
+
+I want you to look ahead and make sure the set of characters exists (?=)
+for example
+/google(?=<)/ig
+
+Negative Lookeahead (?!)
+
+(?!<) match if what's next is not a < sign
+
+
+Lookbehinds are not supported by the regex website
+
+$string = '$name = “Quaid”; My name is Quaid.';
+
+$result = preg_replace('/(?<=$)name/', 'VARIABLE', $string);
+
+var_dump($result);
+
+match the characters  if the character that comes behind is a dollar
+
+(?<!$)string this is a negative lookbehind, match the characters if the character that comes behind is not a dollar.
+
+
+
+CHAPTER 6 – PHP'S REGULAR EXPRESSION SUPPORT
+
+$message = “Listen, Centauri, I'm not any of those guys, I'm a kid from a trailer park, Okay Centauri?”
+
+
+if(strpos($message, 'Centauri') !==false) {
+var_dump('We found it');
+}
+
+
+if (strstr($message, 'Centauri') {
+var_dump('We found it');
+}
+
+if (stristr($message, 'Centauri') {
+var_dump('We found it');
+}
+
+stristr means if its upper case or lower case doesn't matter
+
+if (preg_match('/Centau?ri/', $message, $matches)
+
+preg match will stop after the first match.
+
+If we want to use the g flag we do
+
+preg_match_all();
+
+preg_replace('/Centau?ri/', 'John', $message);
+
+
+$message = “foo,bar,baz”;
+$array = explode(',', $message);
+var_dump($array);
+
+$message = “foo, bar, baz”;
+$array = preg_split('/ ?, ?/', $message);
+var_dump($array);
+
+this last one says sply by a comma, but that last one is optional.
+
+$message = “foo, bar, baz”;
+$array = preg_split('/ *, */', $message);
+var_dump($array);
+
+we could do “ “ or “\s” to match a space
+
+Example:
+
+$comments = [
+	'Always trust Centauri',
+	'You almost got me killed',
+	'You are the man now dog',
+	“Listen, Centari, I'm not any of those guys, I'm a kid from a trialer park”
+];
+
+filter the comments that reference Centauri
+
+$comments = array_filter($comments, function($comment) {
+	return preg_match('/Centau?ri/i', $comment);
+});
+
+var_dump($comments);
+
+
+Example:
+
+$comments = [
+	'Always trust Centauri',
+	'You almost got me killed',
+	'You are the man now dog',
+	“Listen, Centari, I'm not any of those guys, I'm a kid from a trialer park”
+];
+
+$comments = preg_grep('/Centau?ri/i', $comments);
+
+var_dump($comments);
+
+
