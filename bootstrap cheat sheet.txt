@@ -1,0 +1,130 @@
+Bootstrap 3
+
+click on dist folder after downloading it
+you'll need the css fonts and js folders for your project
+
+create a folder called bootstrap in your server and save these three folders there.
+
+You'll need to download jquery and respond.js also and put it in the js folder
+
+
+CHAPTER 1 – get everything in place to build a bootstrap website
+
+<head>
+	<meta name=”viewport” content=”width=device-width, initial-scale=1.0”>
+	this meta tag is for responsive desgin – to scale screens correctly
+
+	<link href=”css/bootstrap.min.css” rel=”stylesheet”>
+	<link href=”css/custom.css” rel=”stylesheet”>
+	create the emtpy custom.css file and add it below the bootstrap.min.css 	file.
+	from github scottjehl/Respond copy the contents of respond.js and create a 	file in your 	js file
+	<script src=”js/respond.js”></script>
+
+</head>
+
+<body>
+
+	<script src=”http://code.jquery.com/jquery-latests.min.js”></script>
+	<script src=”js/bootstrap.min.js”></script> (after jquery)
+
+CHAPTER 2 – GRID SYSTEM
+
+
+grid system .col-xs .col-sm .col-md .col-lg
+.col-md-5 is larger than .col-md-4 and so on
+
+the grids will be horizontal and stack vertically as we reduce screen size.
+The larger the grid the sooner it will stack vertically as we reduce screen size.
+
+<div class=”row”></div>
+
+four columns going across the page as four separate boxes
+we divide by twelve to figure out what number to append to col-md
+
+<div class=”col-md-3”></div>
+<div class=”col-md-3”></div>
+<div class=”col-md-3”></div>
+<div class=”col-md-3”></div>
+
+as you make the page smaller the columns will stack vertically
+
+<div class=”col-md-3 col-xs-6”></div>
+<div class=”col-md-3 col-xs-6”></div>
+<div class=”col-md-3 col-xs-6”></div>
+<div class=”col-md-3 col-xs-6”></div>
+
+will make the breakpoint to stack them vertically smaller and will
+stack them in groups of 2 because 12/6 is 2
+
+
+
+for the header
+
+<div class=”col-lg-6”>
+<div class=”col-lg-6”>
+
+will display two columns
+after a breakpoint (making screen smaller) will stack horizontally,
+the stacking happens earlier because we use lg in the class, the smaller
+the class (lg md sm xs) the later the stacking will happen.
+
+<div class=”col-lg-6 col-sm-5”>
+<div class=”col-lg-6 col-sm-7”>
+
+as the screen is smaller the second div column will start eating more space from the first before stacking vertically 7>5 and 7>6 which would have both columns be the same width.
+
+<div class=”container”>
+(containing several row class divs)
+</div>
+
+text smashed into the sides and content is stretching to the sides of the page, with container element will give the impression of the page having fixed widths.
+For each breakpoint. We get more whitespace.
+
+
+Offsetting columns – having more space between two columns:
+
+<div class=”row”>
+<aside class=”col-lg-3 col-sm-4”></aside>
+<aside class=”col-lg-8 col-lg-offset-1 col-sm-7 col-sm-offset-1></aside>
+
+will ad whitespace equivalent to 1 column on the large display and equivalente also to one column on small display. Remember 3+8+1 is 12 and so must be for small display 4+7+1.
+
+Changing column order using push and pull:
+
+<div class=”row”>
+<article class=”col-lg-offset-1 col-sm-offset-1 col-lg-8 col-sm-7 col-lg-push-3 col-sm-push-4”></aside>
+
+we will push the article however many columns across the page depending on the size, for example on large display the article element will be pushed to the right three columns while the aside will be pulled 9 columns, and when the grid gets small the article element will be pushed four columns to the right while the aside will be pulled 8 columns to the left. In effect this allows in small displays for the aside to go on top of the article after hitting the breakpoint when the elements are stacked vertically.
+
+<aside class=”col-lg-3 col-sm-4 col-lg-pull-9 co-sm-pull-8></aside>
+
+we will pull it howevermany columns towards the left
+
+</div>
+
+
+Nesting Columns
+
+
+At larger dimension have four divs below only one of the two divs above. So we need to nest the row below the one that already exists.
+
+
+<article class=”col-lg-offset-1 col-sm-offset-1 col-lg-8 col-sm-7 col-lg-push-3 col-sm-push-4”>
+<div class=”row”>
+	<div class=”col-md-3 col-xs-6”></div>
+	<div class=”col-md-3 col-xs-6”></div>
+	<div class=”col-md-3 col-xs-6”></div>
+	<div class=”col-md-3 col-xs-6”></div>
+</div>
+</article>
+<aside class=”col-lg-3 col-sm-4 col-lg-pull-9 co-sm-pull-8></aside>
+
+
+JumboTron-style layout
+
+<div class=”jumbotron”></div>
+	<img src=”img/jumbotron.jpg” alt=”” class=”pull-right”></img>
+</div>
+
+will display a jumbotron div with an image stacked in the same row to the right of the page.
+
