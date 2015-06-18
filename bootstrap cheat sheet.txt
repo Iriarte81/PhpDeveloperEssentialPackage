@@ -1,4 +1,4 @@
-Bootstrap 3
+BOOTSTRAP 3
 
 click on dist folder after downloading it
 you'll need the css fonts and js folders for your project
@@ -127,4 +127,237 @@ JumboTron-style layout
 </div>
 
 will display a jumbotron div with an image stacked in the same row to the right of the page.
+
+
+Typography
+
+<div class=”row”>
+	<p><blockquote>
+	</blockquote>
+	</p>
+</div>
+
+
+<footer class=”row”>
+	<p><small>
+	</small></p>
+	<p><small>
+	</small></p>
+</footer>
+
+use small tag for “fine print”
+
+
+.hidden and .visible
+
+<div class=”col-lg-6 col-sm-7”>
+	<img src=”img/animals.jpg” alt=”” class=”hidden-xs”>
+</div>
+
+hidden-xs, hidden-sm, hidden-md, and hidden-lg hide an image only
+at those particular displays, whereas visible-xs, visible-sm, visible-md
+and visible-lg show an image or element only at those displays
+hiding them at any other display size
+
+
+Styling buttons using btn classes
+
+<p><a href=”#” class=”btn btn-default”></a></p>
+
+btn btn-primary – a blue button
+btn btn-warning btn-lg – an large orange button
+btn btn-success btn-xs – an extra small green button
+btn btn-danger btn-block – button will be as wide as containing
+element and it will be red
+
+
+Styling images
+
+making images responsive:
+
+<img src=”img/logo.png” alt=”Wisdom Pets” class=”img-responsive”>
+
+decorative classes:
+
+<img src=”img/logo.png” alt=”Wisdom Pets” class=”img-responsive img-circle”>
+makes the image oval
+
+<img src=”img/logo.png” alt=”Wisdom Pets” class=”img-responsive img-rounded”>
+gives rounded corners on the image
+
+img-responsive img-thumbnail
+will put a grey border on a responsive image (good for white images)
+
+
+Icons
+
+<div class=”col-md-3 col-xs-6”>
+	<h4><span class=”glyphicon glyphicon-pushpin”></span>Title</h4>
+
+glyphicon glyphicon-ok
+glyphicon glyphicon-cutlery
+glyphicon glyphicon-heart
+
+put spaces on your text inside the h4 tag before Title to give it space between the glyphicon and the font.
+
+
+Thumbnail Gallery
+
+lay out a thumbnail gallery using the grid, .thumbnail and .caption
+
+<div class=”row”>
+	<div class=”col-xs-6”>
+		<div class=”thumbnail”>
+			<img src=”img/dog1.jpg” alt=”” class=”img-responsive”>
+		<p class=”caption”>text</p>
+		</div>
+	</div>
+	<div class=”col-xs-6”>
+		<div class=”thumbnail”>
+		<img src=”img/dog1.jpg” alt=”” class=”img-responsive”>
+		<p class=”caption”>text</p>
+	</div>
+</div>
+<div class “row”>
+	<div class=”col-xs-6”>
+		<div class=”thumbnail”>
+		<img src=”img/dog1.jpg” alt=”” class=”img-responsive”>
+		<p class=”caption”>text</p>
+	</div>
+	<div class=”col-xs-6”>
+		<div class=”thumbnail”>
+		<img src=”img/dog1.jpg” alt=”” class=”img-responsive”>
+		<p class=”caption”>text</p>
+	</div>
+</div>
+	<div class=”col-xs-6”>
+		<img src=”img/dog1.jpg” alt=”” class=”img-responsive”>
+		<p>text</p>
+	</div>
+</div>
+
+Styling Tabular Data
+
+<table class=”table”>
+	<thead>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+
+.table on the table tag to make a table
+
+table table-striped (will create a striped table)
+table table-bordered (will give you a spreadsheet look on the table)
+table table-hover (shade when hovering)
+table table-condensed (less padding on the table)
+
+in a div around the table <div class=”table-responsive”><table>...</table></div>
+to make the table responsive
+
+
+Overriding core CSS with custom styles
+
+
+<link href=”css/bootstrap.min.css” rel=”stylesheet”>
+do not make custom styles on bootstrap file because when it
+updates our custom styles will be wiped out
+<link href=”css/custom.css” rel=”stylesheet”>
+
+
+/* in custom stylesheet */
+
+footer {
+	padding: 2em 0;
+	margin: 3em 0;
+	border-top: 1px solid #ddd;
+	color: #999;
+}
+
+say you want to change the glyphicon stylesheet
+
+.glyphicon {
+	color: #cdae51;
+}
+
+.glyphicon-pushpin,
+.glyphicon-heart {
+	color: #39eej9;
+}
+
+for 
+
+<span class=”glyhpicon glyphicon-pushpin”>
+
+
+give breathing room between text and pushed image to the right
+
+maybe i want all images pulled right and responsive
+
+.pull-right.imgresponsive (there is no space it is all one word)
+this reads tags that have those two classes as opposed to nested classes
+
+.pull-right-img-responsive {
+	margin: 0 0 1em 1em;
+}
+
+
+
+ another thing we might want to override a boootstrap style
+
+.btn-info {
+	background-color: #cdae51;
+	border-color: #3F2BD1;
+}
+
+when you don't know where to track within bootstrap what's changing our tag elements
+
+use firebug – install firebug – add to firefox – install or use the developer
+tool with chrome
+
+select the element, on the righthand style menu you can see what's controlling
+the color of an element like a button and copy and paste into our
+custom.css and override the properties we want.
+
+
+Panels
+
+make different boxes of different sizes into thumbnails to prevent responsive alignment problems as they stack vertically
+
+<div class=”clearfix visible-xs visible-lg”></div>
+<div class=”row”>
+	<div class=”col-lg-3 col-xs-6”
+		<div class=”thumbnail”>
+			<div class=”caption”>
+clearfix will keep boxes ordered, notice clearfix class
+is not wrapping the whole thing
+
+
+to create a panel:
+
+<div class=”panel panel-default”>
+	<div class=”panel-body”>
+	</div>
+</div>
+
 
