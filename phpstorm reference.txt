@@ -1,0 +1,130 @@
+PHP STORM FOR WINDOWS –
+BASIC SETTINGS
+
+Shift+Esc							Close the Sidebar
+Ctrl+N							Search Class
+Ctrl+Shift+N						Search File
+Ctrl+Alt+Shift+N						Search Symbol (method)
+Ctrl+C							Will copy a whole line without 								selecting it
+
+View>Status							Close/Open Status Bar
+View>Tool Bar						Close/Open Tool Bar
+View>Navigation Bar					Close/Open Navigation Bar
+
+Ctrl+Alt+S							Navigate Settings:
+File>Settings search:”breadcrums”			Remove breadcrums from interface
+File>Settings search:”colors and fonts”		To edit colors and fonts
+File>Settings search:”Code Style”			To change font and line-spacing
+File>Settings search:”Plugins”			Search for plugins
+								Search for color ide, a plugin 								that applies your theme to the 								sidebar
+Ctrl+Shift+A						Search for anything
+
+
+Ctrl+Shift+A select:”keymaps:”			To change keymaps
+	Ctrl+P						To navigate file structure
+
+Alt+Insert							Create a new file
+
+Shift+Shift							Search anywhere
+
+Shift+ctrl+a
+Shift+shift							Search for anything
+Shift+shift search:”code templates”			Menu to create file and code 									templates
+			
+
+Ctrl+E							Will take you to recent files
+								You can toggle between last files 								used
+
+Ctrl+Click							To explore methods, interfaces, 								etc..
+
+Shift+Shift	search:”live template”			To display, create, insert live 								templates
+(live templates) type the textfiled+tab		It will create the live template
+								use $NAME$ for variables within 								snippet
+
+Ctrl+Alt+L							Code Reformat
+
+File>Settings search:”code style” php		Look through formatting options 								and see how it would apply on 								right hand window
+
+
+					REFACTORING
+
+Select the contents of the method you want to create
+Ctrl+Alt+Shift+T						Refactor this (whatever)
+Give the method name or variable or interface name, select properties and done	
+
+Ctrl+Alt+N							Inline variable
+Ctrl+Alt+M							extract method
+Ctrl+Alt+V							extract variable	
+Ctrl+Alt+F							extract field
+Ctrl+Alt+C							extract constant
+
+					CONSTRUCTORS	
+
+Alt+Insert 							will create a constructor
+
+
+			PHPSTORM'S LARAVEL'S FACADES ISSUE
+
+Php storm interprets facades as errors but they are not.
+
+to remove warnings add a package
+barryvdh ide helper install
+add to gitignore
+warning will have been removed and we will have autocompletion
+
+
+MULTIPLE CURSORS
+
+Alt+Click						To add a new cursor on each place
+Alt+J							To select the next occurrence
+
+
+SPLITS
+
+Window>Editor Tabs> Split Vertically
+Window>Editor Tabs> Split Horizontally
+Window>Editor Tabs> Unsplit
+
+(you can add ctrl v and ctrl h in keybindings to split windows)
+
+
+XDEBUG
+
+a program to debug your functions in php – to see what variables are
+set to in each step
+
+Run>Debug					Select script to debug,
+File>Settings>search: “php” 		browse to check if you have a debugger
+						www.xdebug.org, download the source for 							windows
+						php –-ini to see your loaded config php file
+						open the php ini file and add the xdebug 							configuration
+						save file, restart everything
+						now phpinfo() and check if you have xdebug 						installed
+						set the interpreter in File>Settings>search: 						“php”
+
+	step over – ignore the internals of the function
+	step into – go inside the function
+		you can hover over the variable to see what its equal to
+
+
+
+
+
+
+
+					XDEBUG AND LARAVEL
+
+Run>Edit configurations, 
+	php web application> name laravel, host localhost:8000 xdebug, start 	url: /articles, name demo -laravel
+Run >Debug
+
+set a breakpoint on the right line, step into different calls
+
+
+AUTOMATIC PSR4 NAMESPACING
+
+File>Settings search:”Directories” Navigate to “app” click on sources tab > configure it and apply
+
+now we have psr 4 support, it detects the namespace automatically and applies each time you create a new file
+
+
