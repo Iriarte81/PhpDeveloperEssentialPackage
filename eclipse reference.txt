@@ -1,0 +1,31 @@
+ECLIPSE REFERENCE
+
+1. Comparing Files
+	
+	Select both files from left hand side scroll index menu. Contextual menu (right click) Compare With > Each Other
+
+
+Retrieving History
+
+Some shortcuts
+
+Multiple Selection
+
+Macros
+
+Go to Anything (Searching inside a file Fuzzy Searching Selector Searching)
+
+Selections (Select by letter word function indentation etc)
+
+Preferences (Settings Color Schemes Key Bindings)
+
+Views (Creating Simultaneous Views Window management)
+
+File Shortcuts (Open Save Close Move to File)
+
+Saving Searching and Replacing (Save as Switch projects Search File Search History Incremental find Find and Replace Search across Files)
+
+Text Editing (Indent Spell Check Comments Jumping)
+
+Debugging
+ 
