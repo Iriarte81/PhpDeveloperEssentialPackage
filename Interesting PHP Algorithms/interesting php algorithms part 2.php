@@ -171,3 +171,224 @@ $s is defined as that previous operation plus the new powered value
   echo $s;
 ?>
 
+<?php
+
+/*
+Algorithm asks to enter two numbers, adds 2 to a and sets new value to a, and prints a+2:b, then adds 5 to b.
+While b is less or equal to a continues to do this.
+ */
+  $a = trim(fgets(STDIN));
+  $b = trim(fgets(STDIN));
+  
+  $a += 2;
+  echo $a, ":", $b;
+  $b = $b + 5; 
+
+  while ($b <= $a) {
+    $a += 2; 
+    echo $a, ":", $b;
+    $b = $b + 5;
+  } 
+?>
+
+<?php
+/*
+sets y to 1 and x to 0, then multiplies 0*2 and sets value to x, and 1+1 and sets value to y.
+While y is less than 10 continues to do this echoing x. Zero will print as many times as the loop runs.
+ */ 
+  $y = 1;
+  $x = 0;
+  do {
+    $x = $x * 2;
+    $y = $y + 1;
+  } while ($y < 10);
+  echo $x;
+?>
+
+<?php 
+/*
+User determines how many times the loop will run, setting start and end values
+ */
+  $start = trim(fgets(STDIN));
+  $end = trim(fgets(STDIN));
+  $x = 5;
+
+  for ($i = $start; $i <= $end; $i++) {
+    $x = pow($x, 1.5);
+  }
+  echo $x;
+?>
+
+<?php 
+/*
+User determines how many times the loop will run, keeping the loop running so long the start
+is less than the end with a do while loop as an alternative to the for loop in the example above.
+ */
+  $start = trim(fgets(STDIN));
+  $end = trim(fgets(STDIN));
+  $x = 5;
+
+  $i = $start;
+  if ($i <= $end) {
+    do {
+      $x = pow($x, 1.5);
+      $i++;
+    } while ($i <= $end);
+  }
+  echo $x;
+?>
+
+<?php 
+/*
+Runs a loop whose internal values and values determinining run time are calculated on the basis of both
+data entered by the user and an internal formula
+ */
+  $s = 0;
+  $a = trim(fgets(STDIN));
+  $i = $a;
+  $s = $s + $i; 
+  $i = $i + 3;
+  $s = $s + pow($i, 2);
+
+  for ($i = $a + 3; $i <= 59; $i = $i + 3) {
+    $s = $s + $i;
+
+    $s = $s + pow($i + 3, 2); 
+  }
+  echo $s;
+?>
+
+
+<?php
+
+/*
+Prints 1 x 1 = 1, 1 x 2 = 2, 1 x 3 = 3 and so on until 9 x 9 = 81
+ */
+  for ($i = 1; $i <= 9; $i++) {
+    for ($j = 1; $j <= 9; $j++) {
+      echo $i, "x", $j, "=", $i * $j, "\t";
+    }
+    echo "\n";
+  }
+?>
+
+
+<?php   
+/*
+Setting a maximum weight and checking if it is the maximum value set for that variable
+ */
+  $max = -1;
+
+  for ($i = 1; $i <= 10; $i++) {
+    echo "Enter a weight: ";
+    $w = trim(fgets(STDIN));
+    if ($w > $max) {
+      $max = $w;
+    }
+  }
+  echo $max;
+?>
+
+<?php
+
+/*
+Divide total sum by the count, get dynamic averages
+ */
+
+  $s = 0;
+  $count = 0;
+  for ($i = 1; $i <= 100; $i++) {
+    $x = trim(fgets(STDIN));
+    if ($x > 0) {
+      $s = $s + $x;
+      $count++;
+    }
+  }
+  if ($count != 0) {
+    echo $s / $count;
+  }
+  else {
+    echo "No numbers entered!";
+  }
+?>
+
+
+<?php
+/*
+Keep track of the score between two numbers, maybe two players competing against whose number is largest
+ */
+  $count_a = 0;
+  $count_b = 0;
+  
+  for ($i = 1; $i <= 10; $i++) {
+    echo "Enter number A: ";
+    $a = trim(fgets(STDIN));
+    echo "Enter number B: ";
+    $b = trim(fgets(STDIN));
+    
+    if ($a > $b) {
+      $count_a++;
+    }
+    elseif ($b > $a) {
+      $count_b++;
+    }
+  }
+  echo $count_a, $count_b;
+?>
+
+
+<?php
+/*
+Print the count of of times a number added to itself fits in 999, for example 100 fits 9 times
+ */
+  $count = 0;
+  $sum = 0;     //Initialization of $sum
+  do {
+    $x = trim(fgets(STDIN));
+    $count++;
+    $sum += $x;     //Update/alteration of $sum
+  } while ($sum < 1000);
+  echo $count;
+?>
+
+
+<?php
+/*
+Keep track of the score between three types of numbers: single, double and triple digit numbers.
+ */
+  $count1 = 0;
+  $count2 = 0;
+  $count3 = 0;
+  
+  for ($i = 1; $i <= 20; $i++) {
+    echo "Enter a number: ";
+    $a = trim(fgets(STDIN));
+    
+    if ($a <= 9) {
+      $count1++;
+    }
+    elseif ($a <= 99) {
+      $count2++;
+    }
+    else {
+      $count3++;
+    }
+  }
+  echo $count1, $count2, $count3;
+?>
+
+<?php
+/*
+Perform a math operation and ask player if they want to repeat the operation.
+ */
+  do {
+    echo "Enter two numbers: ";
+    $a = trim(fgets(STDIN));
+    $b = trim(fgets(STDIN));
+    
+    $result = pow($a, $b);
+    echo "The result is: ", $result, "\n";
+    
+    echo "Would you like to repeat?";
+    $answer = trim(fgets(STDIN));
+  } while (strtoupper($answer) == "YES");
